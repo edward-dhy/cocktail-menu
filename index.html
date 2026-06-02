@@ -270,6 +270,201 @@
         width: min(18vw, 14.5rem);
       }
     }
+    /* —— 留言触发按钮 —— */
+    .copy-foot {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .msg-trigger {
+      align-self: flex-start;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.42rem 0.9rem;
+      border: 1px solid rgba(231, 169, 176, 0.45);
+      border-radius: 999px;
+      color: var(--cream);
+      background: rgba(231, 169, 176, 0.14);
+      font: inherit;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: background 0.18s, border-color 0.18s, transform 0.18s;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .msg-trigger:hover,
+    .msg-trigger:focus-visible {
+      background: rgba(231, 169, 176, 0.24);
+      border-color: var(--rose);
+      outline: none;
+      transform: translateY(-1px);
+    }
+
+    .msg-count {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 1.3rem;
+      height: 1.3rem;
+      padding: 0 0.36rem;
+      border-radius: 999px;
+      background: var(--rose);
+      color: #3a1b25;
+      font-size: 0.76rem;
+      font-weight: 700;
+    }
+
+    /* —— 留言弹层 —— */
+    .msg-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      background: rgba(20, 10, 18, 0.62);
+      backdrop-filter: blur(4px);
+    }
+
+    .msg-overlay[hidden] { display: none; }
+
+    .msg-sheet {
+      position: relative;
+      width: min(100%, 34rem);
+      max-height: 86vh;
+      display: flex;
+      flex-direction: column;
+      padding: 1.5rem 1.2rem 1.2rem;
+      border: 1px solid var(--line);
+      border-bottom: none;
+      border-radius: 22px 22px 0 0;
+      background: linear-gradient(180deg, rgba(89, 49, 66, 0.96), rgba(33, 23, 32, 0.98));
+      box-shadow: 0 -1.4rem 3rem rgba(10, 4, 10, 0.5);
+      animation: sheetUp 0.26s ease;
+    }
+
+    @keyframes sheetUp {
+      from { transform: translateY(8%); opacity: 0.6; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .msg-close {
+      position: absolute;
+      top: 0.7rem;
+      right: 0.8rem;
+      width: 2.1rem;
+      height: 2.1rem;
+      border: none;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--cream);
+      font-size: 1.4rem;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .msg-close:hover { background: rgba(255, 255, 255, 0.16); }
+
+    .msg-head { padding-right: 2.2rem; }
+
+    .msg-title {
+      margin: 0;
+      font-family: "Playfair Display", "Cormorant Garamond", "Songti SC", serif;
+      font-weight: 600;
+      font-size: 1.9rem;
+      color: var(--cream);
+    }
+
+    .msg-sub {
+      margin: 0.15rem 0 0;
+      color: var(--blush-gold);
+      font-family: "Playfair Display", Georgia, serif;
+      font-style: italic;
+      font-size: 1rem;
+    }
+
+    .msg-list {
+      flex: 1;
+      min-height: 4rem;
+      margin: 1rem 0;
+      padding-right: 0.3rem;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .msg-empty {
+      margin: auto;
+      color: var(--muted);
+      font-size: 0.95rem;
+      text-align: center;
+    }
+
+    .msg-item {
+      padding: 0.7rem 0.85rem;
+      border: 1px solid rgba(231, 169, 176, 0.22);
+      border-radius: 14px;
+      background: rgba(255, 250, 250, 0.05);
+    }
+
+    .msg-item-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.6rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .msg-name { color: var(--rose); font-weight: 700; font-size: 0.95rem; word-break: break-word; }
+    .msg-time { color: var(--muted); font-size: 0.74rem; flex: none; }
+    .msg-body { margin: 0; color: var(--cream); font-size: 0.98rem; line-height: 1.5; white-space: pre-wrap; word-break: break-word; }
+
+    .msg-form { display: flex; flex-direction: column; gap: 0.6rem; }
+    .msg-form[hidden] { display: none; }
+
+    .msg-nick,
+    .msg-text {
+      width: 100%;
+      padding: 0.6rem 0.8rem;
+      border: 1px solid rgba(231, 169, 176, 0.3);
+      border-radius: 12px;
+      background: rgba(20, 12, 18, 0.5);
+      color: var(--cream);
+      font: inherit;
+      font-size: 0.96rem;
+      resize: none;
+    }
+
+    .msg-nick::placeholder,
+    .msg-text::placeholder { color: rgba(205, 169, 176, 0.6); }
+    .msg-nick:focus,
+    .msg-text:focus { outline: none; border-color: var(--rose); }
+
+    .msg-inputrow { display: flex; gap: 0.55rem; align-items: stretch; }
+    .msg-inputrow .msg-text { flex: 1; }
+
+    .msg-send {
+      flex: none;
+      padding: 0 1.1rem;
+      border: none;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--rose), var(--rouge));
+      color: #2b121c;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .msg-send:disabled { opacity: 0.55; cursor: default; }
+    .msg-send:hover:not(:disabled) { filter: brightness(1.06); }
+
+    @media (min-width: 42rem) {
+      .msg-overlay { align-items: center; padding: 1.5rem; }
+      .msg-sheet { border-radius: 22px; border-bottom: 1px solid var(--line); }
+    }
   </style>
 </head>
 <body>
@@ -284,6 +479,25 @@
 
     <footer>聚会信息占位 · Liverpool Memories</footer>
   </main>
+
+  <!-- 留言弹层 -->
+  <div id="msgOverlay" class="msg-overlay" hidden>
+    <div class="msg-sheet" role="dialog" aria-modal="true" aria-labelledby="msgTitle" tabindex="-1">
+      <button type="button" class="msg-close" aria-label="关闭">×</button>
+      <header class="msg-head">
+        <h3 id="msgTitle" class="msg-title"></h3>
+        <p class="msg-sub"></p>
+      </header>
+      <div class="msg-list" id="msgList"></div>
+      <form class="msg-form" id="msgForm" autocomplete="off">
+        <input class="msg-nick" id="msgNick" type="text" maxlength="40" placeholder="你的昵称（可留空）" autocomplete="nickname">
+        <div class="msg-inputrow">
+          <textarea class="msg-text" id="msgText" rows="2" maxlength="500" placeholder="写句话给大家…"></textarea>
+          <button class="msg-send" id="msgSend" type="submit">发送</button>
+        </div>
+      </form>
+    </div>
+  </div>
 
   <script>
     const cocktails = [
@@ -362,6 +576,7 @@
     cocktails.forEach((cocktail) => {
       const card = document.createElement("article");
       card.className = "card";
+      card.dataset.drink = cocktail.nameZh;
       card.innerHTML = `
         <div class="copy">
           <div>
@@ -371,13 +586,174 @@
               ${cocktail.ingredients.map((item) => `<li class="chip">${item}</li>`).join("")}
             </ul>
           </div>
-          <p class="note">${cocktail.note}</p>
+          <div class="copy-foot">
+            <p class="note">${cocktail.note}</p>
+            <button type="button" class="msg-trigger" data-drink="${cocktail.nameZh}" data-en="${cocktail.nameEn}" aria-label="查看并留言：${cocktail.nameZh}">
+              💬 留言 <span class="msg-count" data-drink="${cocktail.nameZh}" hidden></span>
+            </button>
+          </div>
         </div>
         <div class="glass-wrap" aria-hidden="true">
           ${glassSvgs[cocktail.glass] || glassSvgs.coupe}
         </div>
       `;
       menu.appendChild(card);
+    });
+  </script>
+
+  <!-- 留言功能：Firebase Firestore 实时 -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+    import { getFirestore, collection, addDoc, onSnapshot, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyA8-mBgssm_f6eD2qIKVxxA7NcCV66S1hA",
+      authDomain: "menu-64e32.firebaseapp.com",
+      projectId: "menu-64e32",
+      storageBucket: "menu-64e32.firebasestorage.app",
+      messagingSenderId: "568074493238",
+      appId: "1:568074493238:web:5edbe358064debd490e797",
+      measurementId: "G-KPK98C9E46"
+    };
+
+    let db = null;
+    let all = [];
+    let openDrink = null;
+    let ready = false;
+
+    const overlay = document.getElementById("msgOverlay");
+    const sheet = overlay.querySelector(".msg-sheet");
+    const titleEl = document.getElementById("msgTitle");
+    const subEl = overlay.querySelector(".msg-sub");
+    const listEl = document.getElementById("msgList");
+    const form = document.getElementById("msgForm");
+    const nickEl = document.getElementById("msgNick");
+    const textEl = document.getElementById("msgText");
+    const sendEl = document.getElementById("msgSend");
+
+    try { nickEl.value = localStorage.getItem("lm_nick") || ""; } catch (e) {}
+
+    // 初始化 Firebase；失败则降级（菜单照常，留言提示需联网）
+    try {
+      const app = initializeApp(firebaseConfig);
+      db = getFirestore(app);
+      onSnapshot(collection(db, "comments"), (snap) => {
+        all = snap.docs.map((d) => ({ id: d.id, ...d.data() }));
+        ready = true;
+        updateCounts();
+        if (openDrink) renderList(openDrink);
+      }, (err) => { console.warn("留言监听失败：", err); });
+    } catch (e) {
+      console.warn("Firebase 初始化失败：", e);
+    }
+
+    const secs = (c) => (c.createdAt && c.createdAt.seconds) ? c.createdAt.seconds : Number.MAX_SAFE_INTEGER;
+    const forDrink = (drink) => all.filter((c) => c.drink === drink).sort((a, b) => secs(a) - secs(b));
+
+    function updateCounts() {
+      document.querySelectorAll(".msg-count").forEach((el) => {
+        const n = all.filter((c) => c.drink === el.dataset.drink).length;
+        if (n > 0) { el.textContent = n; el.hidden = false; } else { el.hidden = true; }
+      });
+    }
+
+    function fmt(c) {
+      if (!c.createdAt || !c.createdAt.seconds) return "刚刚";
+      const d = new Date(c.createdAt.seconds * 1000);
+      const p = (n) => String(n).padStart(2, "0");
+      return `${d.getMonth() + 1}月${d.getDate()}日 ${p(d.getHours())}:${p(d.getMinutes())}`;
+    }
+
+    function renderList(drink) {
+      listEl.innerHTML = "";
+      if (!db) {
+        const n = document.createElement("p");
+        n.className = "msg-empty";
+        n.textContent = "留言功能需要联网，请检查网络后重试。";
+        listEl.appendChild(n);
+        return;
+      }
+      const items = forDrink(drink);
+      if (!items.length) {
+        const n = document.createElement("p");
+        n.className = "msg-empty";
+        n.textContent = ready ? "还没有人留言，来当第一个 ✍️" : "加载中…";
+        listEl.appendChild(n);
+        return;
+      }
+      items.forEach((c) => {
+        const row = document.createElement("div");
+        row.className = "msg-item";
+        const head = document.createElement("div");
+        head.className = "msg-item-head";
+        const nm = document.createElement("span");
+        nm.className = "msg-name";
+        nm.textContent = (c.nickname && c.nickname.trim()) ? c.nickname : "匿名";
+        const tm = document.createElement("span");
+        tm.className = "msg-time";
+        tm.textContent = fmt(c);
+        head.appendChild(nm);
+        head.appendChild(tm);
+        const bd = document.createElement("p");
+        bd.className = "msg-body";
+        bd.textContent = c.text;
+        row.appendChild(head);
+        row.appendChild(bd);
+        listEl.appendChild(row);
+      });
+      listEl.scrollTop = listEl.scrollHeight;
+    }
+
+    function openModal(drink, en) {
+      openDrink = drink;
+      titleEl.textContent = drink;
+      subEl.textContent = en || "";
+      form.hidden = !db;
+      renderList(drink);
+      overlay.hidden = false;
+      document.body.style.overflow = "hidden";
+      setTimeout(() => { (db ? textEl : sheet).focus(); }, 30);
+    }
+
+    function closeModal() {
+      overlay.hidden = true;
+      openDrink = null;
+      document.body.style.overflow = "";
+    }
+
+    document.addEventListener("click", (e) => {
+      const trig = e.target.closest(".msg-trigger");
+      if (trig) { openModal(trig.dataset.drink, trig.dataset.en); return; }
+      if (e.target.closest(".msg-close")) { closeModal(); return; }
+      if (e.target === overlay) { closeModal(); }
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !overlay.hidden) closeModal();
+    });
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      if (!db || !openDrink) return;
+      const text = textEl.value.trim();
+      if (!text) { textEl.focus(); return; }
+      const nickname = nickEl.value.trim().slice(0, 40);
+      try { localStorage.setItem("lm_nick", nickname); } catch (e2) {}
+      sendEl.disabled = true;
+      try {
+        await addDoc(collection(db, "comments"), {
+          drink: openDrink,
+          nickname: nickname,
+          text: text.slice(0, 500),
+          createdAt: serverTimestamp()
+        });
+        textEl.value = "";
+      } catch (err) {
+        console.warn("发送失败：", err);
+        alert("发送失败了，稍后再试试～");
+      } finally {
+        sendEl.disabled = false;
+        textEl.focus();
+      }
     });
   </script>
 </body>
