@@ -3,256 +3,271 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Maison Noir 鸡尾酒单</title>
-  <script>
-    const cocktails = [
-      {
-        name: "Old Fashioned",
-        tagline: "波本、苦精与橙皮的沉稳经典。",
-        desc: "以威士忌为骨架，加入少量糖与苦精，层次干净而有力度。橙皮香气在杯中慢慢展开，适合喜欢醇厚口感的客人。",
-        glass: "rocks"
-      },
-      {
-        name: "Negroni",
-        tagline: "金巴利、琴酒与甜味美思的苦甜平衡。",
-        desc: "鲜明的草本苦味与甜香并行，入口利落，余味悠长。它是开胃酒中的标志性选择，也适合慢慢品饮。",
-        glass: "rocks"
-      },
-      {
-        name: "Margarita",
-        tagline: "龙舌兰、柑橘与盐边的明亮节奏。",
-        desc: "青柠酸度带出龙舌兰的植物香气，橙酒让整体更圆润。盐边强化清爽感，是派对和餐前时段的常客。",
-        glass: "coupe"
-      },
-      {
-        name: "Mojito",
-        tagline: "朗姆、薄荷与苏打的清透海风。",
-        desc: "新鲜薄荷和青柠带来轻盈香气，白朗姆提供柔和甜感。冰块与苏打让它清爽易饮，适合炎热夜晚。",
-        glass: "highball"
-      },
-      {
-        name: "Whiskey Sour",
-        tagline: "威士忌、柠檬与绵密泡沫的酸甜结构。",
-        desc: "柠檬汁让威士忌更明亮，糖浆修饰酸度并带来顺滑口感。经典版本常带柔和泡沫，风味饱满但不厚重。",
-        glass: "coupe"
-      },
-      {
-        name: "Espresso Martini",
-        tagline: "咖啡、伏特加与利口酒的夜色能量。",
-        desc: "浓缩咖啡带来烘焙香与微苦，咖啡利口酒增加甜润深度。摇和后的细腻泡沫让它兼具醒神与优雅。",
-        glass: "martini"
-      },
-      {
-        name: "Manhattan",
-        tagline: "黑麦威士忌与甜味美思的都市感。",
-        desc: "酒体饱满，香料、木质与樱桃气息交织。它比 Old Fashioned 更柔顺，也更适合餐后慢饮。",
-        glass: "coupe"
-      },
-      {
-        name: "Aperol Spritz",
-        tagline: "阿佩罗、气泡酒与苏打的夕阳色。",
-        desc: "橙香、微苦与气泡感构成轻快入口，酒精感温和。适合作为下午或傍晚的第一杯。",
-        glass: "highball"
-      }
-    ];
-  </script>
+  <title>Liverpool Memories</title>
   <style>
     :root {
-      color-scheme: dark;
-      --bg: #080808;
-      --panel: #151311;
-      --panel-soft: #1d1915;
-      --ink: #f5efe1;
-      --muted: #b9aa8f;
-      --gold: #c9a227;
-      --gold-soft: rgba(201, 162, 39, 0.22);
-      --line: rgba(201, 162, 39, 0.34);
-      --shadow: rgba(0, 0, 0, 0.46);
+      --bg-ink: #211720;
+      --rose: #e7a9b0;
+      --blush-gold: #e7c4a0;
+      --cream: #f4e8e6;
+      --muted: #cda9b0;
+      --rouge: #ef8f9b;
+      --card: rgba(255, 250, 250, 0.055);
+      --card-strong: rgba(255, 238, 240, 0.105);
+      --line: rgba(231, 169, 176, 0.34);
+      --shadow: rgba(17, 8, 18, 0.42);
+      --accent: var(--rose);
     }
 
     * {
       box-sizing: border-box;
     }
 
+    html {
+      min-height: 100%;
+      background: var(--bg-ink);
+    }
+
     body {
-      margin: 0;
       min-height: 100vh;
+      margin: 0;
+      color: var(--cream);
+      font-family: "Avenir Next", "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      line-height: 1.55;
       background:
-        radial-gradient(circle at top right, rgba(201, 162, 39, 0.13), transparent 34rem),
-        linear-gradient(180deg, #10100f 0%, var(--bg) 38%, #050505 100%);
-      color: var(--ink);
-      font-family: "Avenir Next", "Segoe UI", system-ui, -apple-system, sans-serif;
-      line-height: 1.6;
+        radial-gradient(circle at 22% 7%, rgba(236, 166, 176, 0.42) 0 18rem, rgba(236, 166, 176, 0) 32rem),
+        radial-gradient(circle at 78% 12%, rgba(231, 196, 160, 0.30) 0 13rem, rgba(231, 196, 160, 0) 29rem),
+        radial-gradient(circle at 50% 46%, rgba(137, 82, 113, 0.24) 0 18rem, rgba(137, 82, 113, 0) 34rem),
+        linear-gradient(180deg, #593142 0%, #3d263b 38%, #211720 100%);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(115deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0) 31%),
+        radial-gradient(circle at 14% 78%, rgba(231, 169, 176, 0.12), transparent 23rem);
+      mix-blend-mode: screen;
     }
 
     .page {
-      width: min(100%, 44rem);
+      width: min(100%, 72rem);
       margin: 0 auto;
-      padding: 2rem 1rem 1.35rem;
+      padding: 2rem 1rem 1.5rem;
     }
 
     .hero {
-      padding: 1rem 0 1.35rem;
-      border-bottom: 1px solid var(--line);
+      padding: 2rem 0 1.45rem;
+      text-align: center;
     }
 
-    .eyebrow,
-    .footer {
-      color: var(--gold);
-      font-size: 0.76rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
+    .eyebrow {
+      margin: 0 0 0.8rem;
+      color: var(--blush-gold);
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
     }
 
     h1,
-    h2 {
-      font-family: "Playfair Display", "Cormorant Garamond", Georgia, "Times New Roman", serif;
+    .name-zh {
+      font-family: "Playfair Display", "Cormorant Garamond", "Songti SC", "STSong", serif;
       font-weight: 600;
-      line-height: 1.05;
     }
 
     h1 {
-      margin: 0.48rem 0 0.75rem;
-      font-size: clamp(2.75rem, 16vw, 5.35rem);
-      letter-spacing: 0;
+      margin: 0;
+      color: var(--cream);
+      font-size: clamp(2.75rem, 13vw, 6.2rem);
+      line-height: 0.95;
+      text-wrap: balance;
+      text-shadow: 0 0.8rem 2.6rem rgba(44, 14, 28, 0.52);
     }
 
     .subtitle {
-      max-width: 32rem;
-      margin: 0;
+      margin: 1rem auto 0;
+      max-width: 22rem;
       color: var(--muted);
-      font-size: 1.03rem;
+      font-family: "Playfair Display", "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(1.02rem, 4.2vw, 1.35rem);
+      font-style: italic;
     }
 
     .menu {
       display: grid;
       gap: 1rem;
-      padding: 1.25rem 0;
+      padding: 0.35rem 0 1.25rem;
     }
 
     .card {
       position: relative;
       display: grid;
-      grid-template-columns: minmax(0, 1fr) 5.7rem;
+      grid-template-columns: minmax(0, 1fr);
       gap: 1rem;
-      min-height: 13rem;
-      padding: 1.1rem;
+      min-height: 20rem;
+      padding: 1.15rem;
       overflow: hidden;
-      border: 1px solid rgba(201, 162, 39, 0.24);
-      border-radius: 8px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
       background:
-        linear-gradient(145deg, rgba(255, 255, 255, 0.045), transparent 38%),
-        var(--panel);
-      box-shadow: 0 1.2rem 2.6rem var(--shadow);
+        linear-gradient(145deg, rgba(255, 250, 250, 0.078), rgba(255, 250, 250, 0.024)),
+        var(--card);
+      box-shadow: 0 1.4rem 3.4rem var(--shadow), inset 0 1px rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
     }
 
-    .card::before {
+    .card::after {
       content: "";
       position: absolute;
-      inset: 0;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      pointer-events: none;
+      right: -5rem;
+      bottom: -5rem;
+      width: 13rem;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: rgba(231, 196, 160, 0.09);
+      filter: blur(1rem);
     }
 
-    .drink-copy {
+    .copy {
       position: relative;
       z-index: 1;
+      display: flex;
       min-width: 0;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1rem;
     }
 
-    .number {
+    .name-zh {
+      margin: 0;
+      color: var(--cream);
+      font-size: clamp(2rem, 9vw, 3.45rem);
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .name-en {
+      margin: 0.28rem 0 0;
+      color: var(--blush-gold);
+      font-family: "Playfair Display", "Cormorant Garamond", Georgia, serif;
+      font-size: 1.06rem;
+      font-style: italic;
+    }
+
+    .ingredients {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin: 0.85rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .chip {
       display: inline-flex;
       align-items: center;
-      gap: 0.45rem;
-      color: var(--gold);
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
+      min-height: 2rem;
+      padding: 0.34rem 0.76rem;
+      border: 1px solid rgba(231, 169, 176, 0.33);
+      border-radius: 999px;
+      color: #f6d4cf;
+      background: rgba(231, 169, 176, 0.125);
+      box-shadow: inset 0 1px rgba(255, 255, 255, 0.055);
+      font-size: 0.92rem;
+      white-space: nowrap;
     }
 
-    .number::after {
-      content: "";
-      width: 2.1rem;
-      height: 1px;
-      background: var(--gold);
-      opacity: 0.72;
-    }
-
-    h2 {
-      margin: 0.52rem 0 0.34rem;
-      font-size: clamp(1.65rem, 8.5vw, 2.7rem);
-    }
-
-    .tagline {
-      margin: 0 0 0.74rem;
-      color: var(--gold);
+    .note {
+      margin: 0;
+      color: var(--rouge);
       font-size: 0.96rem;
       font-style: italic;
     }
 
-    .desc {
-      margin: 0 0 0.9rem;
-      color: #ded2b7;
-      font-size: 0.95rem;
-    }
-
-    .glass-label {
-      display: inline-block;
-      padding: 0.28rem 0.55rem;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      color: var(--muted);
-      background: rgba(201, 162, 39, 0.08);
-      font-size: 0.74rem;
-      letter-spacing: 0.04em;
-    }
-
-    .glass-art {
+    .glass-wrap {
       position: relative;
       z-index: 1;
-      align-self: center;
-      width: 5.7rem;
-      min-width: 5.7rem;
-      aspect-ratio: 1 / 1.35;
-      color: var(--gold);
-      opacity: 0.96;
+      display: grid;
+      min-height: 9.6rem;
+      place-items: center;
+      color: var(--accent);
     }
 
-    .glass-art svg {
-      width: 100%;
-      height: 100%;
-      display: block;
-      filter: drop-shadow(0 0.6rem 1.1rem rgba(201, 162, 39, 0.13));
+    .glass {
+      width: min(58vw, 13.8rem);
+      height: auto;
+      opacity: 0.92;
+      filter: drop-shadow(0 1rem 1.5rem rgba(18, 7, 17, 0.34));
     }
 
-    .footer {
-      padding-top: 0.95rem;
-      border-top: 1px solid var(--line);
+    .glass .drink {
+      color: var(--rouge);
+      opacity: 0.36;
+    }
+
+    .glass .shine {
+      color: #fff4ef;
+      opacity: 0.42;
+    }
+
+    footer {
+      padding: 0.8rem 0 0.6rem;
+      color: rgba(205, 169, 176, 0.72);
       text-align: center;
-      color: rgba(201, 162, 39, 0.78);
-      text-transform: none;
-      letter-spacing: 0.08em;
-      font-size: 0.72rem;
+      font-size: 0.82rem;
+    }
+
+    .svg-defs {
+      position: absolute;
+      width: 0;
+      height: 0;
+      overflow: hidden;
     }
 
     @media (min-width: 42rem) {
       .page {
-        padding: 3rem 1.5rem 1.75rem;
+        padding: 3rem 1.5rem 2rem;
+      }
+
+      .hero {
+        padding: 2.8rem 0 2.1rem;
       }
 
       .menu {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.1rem;
       }
 
       .card {
-        grid-template-columns: minmax(0, 1fr);
         min-height: 24rem;
+        padding: 1.35rem;
+      }
+    }
+
+    @media (min-width: 58rem) {
+      .menu {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
       }
 
-      .glass-art {
-        justify-self: end;
-        width: 7rem;
+      .card {
+        grid-column: span 3;
+        grid-template-columns: minmax(0, 1.05fr) minmax(10rem, 0.75fr);
+        align-items: stretch;
+      }
+
+      .card:nth-child(5) {
+        grid-column: 2 / span 4;
+      }
+
+      .glass-wrap {
+        min-height: 100%;
+      }
+
+      .glass {
+        width: min(18vw, 14.5rem);
       }
     }
   </style>
@@ -260,83 +275,110 @@
 <body>
   <main class="page">
     <header class="hero">
-      <div class="eyebrow">Maison Noir</div>
-      <h1>经典鸡尾酒单</h1>
-      <p class="subtitle">深夜、金色杯沿与慢调风味。以下为示例模板，可直接修改顶部数据，替换为你的真实酒单内容。</p>
+      <p class="eyebrow">cocktail menu</p>
+      <h1>Liverpool Memories</h1>
+      <p class="subtitle">for the reunion of Shandong Big 3</p>
     </header>
 
-    <section class="menu" id="menu" aria-label="鸡尾酒单"></section>
+    <section class="menu" id="menu" aria-label="鸡尾酒菜单"></section>
 
-    <footer class="footer">店铺地址 / 营业时间 / 联系方式占位</footer>
+    <footer>聚会信息占位 · Liverpool Memories</footer>
   </main>
 
   <script>
-    const glassNames = {
-      coupe: "Coupe 杯",
-      rocks: "Rocks 杯",
-      highball: "Highball 杯",
-      martini: "Martini 杯"
-    };
+    const cocktails = [
+      {
+        nameZh: "床笫之间",
+        nameEn: "Between the Sheet",
+        ingredients: ["白兰地", "白朗姆", "君度", "柠檬汁"],
+        note: "求求你别扣我",
+        glass: "coupe"
+      },
+      {
+        nameZh: "苹果马天尼",
+        nameEn: "Appletini",
+        ingredients: ["金酒", "苹果利口酒", "君度"],
+        note: "北欧的回忆",
+        glass: "martini"
+      },
+      {
+        nameZh: "红粉佳人",
+        nameEn: "Pink Lady",
+        ingredients: ["金酒", "苹果利口酒", "柠檬汁", "红石榴糖浆", "蛋清"],
+        note: "粉不粉红不知道，但一定红温了",
+        glass: "coupe"
+      },
+      {
+        nameZh: "绿色心情",
+        nameEn: "Green emo",
+        ingredients: ["白朗姆", "苹果利口酒", "青柠汁", "糖浆"],
+        note: "喝了就不许EMO啦",
+        glass: "coupe"
+      },
+      {
+        nameZh: "大都会",
+        nameEn: "Cosmopolitan",
+        ingredients: ["金酒", "君度", "蔓越莓汁", "青柠汁"],
+        note: "伯明翰怎么不是大都会",
+        glass: "martini"
+      }
+    ];
 
+    // 杯型插画：内联 SVG（带 viewBox 保证纵向比例正确，且 .drink/.shine 样式能直接生效）。
+    // 四种杯型都保留备用，本页用到 coupe 与 martini。
     const glassSvgs = {
       coupe: `
-        <svg viewBox="0 0 120 160" role="img" aria-label="Coupe 杯线条插画">
-          <g fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M22 35h76c-3 25-20 42-38 42S25 60 22 35Z"/>
-            <path d="M60 77v47"/>
-            <path d="M37 132h46"/>
-            <path d="M45 124h30"/>
-            <path d="M31 47h58"/>
-          </g>
-        </svg>`,
-      rocks: `
-        <svg viewBox="0 0 120 160" role="img" aria-label="Rocks 杯线条插画">
-          <g fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M30 34h60l-8 98H38L30 34Z"/>
-            <path d="M35 57h50"/>
-            <path d="M44 78l16-12 15 15-16 13Z"/>
-            <path d="M63 95l15-10 10 14-16 11Z"/>
-            <path d="M40 132h42"/>
-          </g>
-        </svg>`,
-      highball: `
-        <svg viewBox="0 0 120 160" role="img" aria-label="Highball 杯线条插画">
-          <g fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M36 22h48l-6 118H42L36 22Z"/>
-            <path d="M40 50h40"/>
-            <path d="M47 72h26"/>
-            <path d="M45 92h30"/>
-            <path d="M42 140h36"/>
-            <path d="M80 18c7-7 10-12 11-17"/>
-          </g>
-        </svg>`,
+          <svg class="glass" role="img" viewBox="0 0 160 190" preserveAspectRatio="xMidYMid meet">
+            <path d="M33 24h94c-1 35-20 60-47 60S34 59 33 24Z" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
+            <path class="drink" d="M42 38h76c-5 24-21 38-38 38S47 62 42 38Z" fill="currentColor"/>
+            <path d="M80 84v78M53 170h54" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+            <path class="shine" d="M55 30c5 18 13 29 25 35" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+          </svg>`,
       martini: `
-        <svg viewBox="0 0 120 160" role="img" aria-label="Martini 杯线条插画">
-          <g fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M18 28h84L60 82 18 28Z"/>
-            <path d="M60 82v45"/>
-            <path d="M38 136h44"/>
-            <path d="M45 127h30"/>
-            <path d="M30 42h60"/>
-            <circle cx="83" cy="46" r="7"/>
-          </g>
-        </svg>`
+          <svg class="glass" role="img" viewBox="0 0 160 190" preserveAspectRatio="xMidYMid meet">
+            <path d="M25 25h110L80 92 25 25Z" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
+            <path class="drink" d="M38 36h84L80 84 38 36Z" fill="currentColor"/>
+            <path d="M80 92v70M52 170h56" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+            <path class="shine" d="M49 33l29 35" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+          </svg>`,
+      highball: `
+          <svg class="glass" role="img" viewBox="0 0 160 190" preserveAspectRatio="xMidYMid meet">
+            <path d="M48 24h64l-7 146H55L48 24Z" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
+            <path class="drink" d="M56 72h48l-5 91H61L56 72Z" fill="currentColor"/>
+            <path class="shine" d="M68 36l-3 118" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+            <path d="M58 55h46" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity="0.55"/>
+          </svg>`,
+      rocks: `
+          <svg class="glass" role="img" viewBox="0 0 160 190" preserveAspectRatio="xMidYMid meet">
+            <path d="M40 48h80l-10 118H50L40 48Z" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
+            <path class="drink" d="M49 88h62l-7 72H56L49 88Z" fill="currentColor"/>
+            <path d="M62 73h23v21H62zM85 74h22v21H85z" fill="none" stroke="currentColor" stroke-width="3" opacity="0.55"/>
+            <path class="shine" d="M61 59l-4 91" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+          </svg>`
     };
 
     const menu = document.querySelector("#menu");
 
-    menu.innerHTML = cocktails.map((drink, index) => `
-      <article class="card">
-        <div class="drink-copy">
-          <span class="number">${String(index + 1).padStart(2, "0")}</span>
-          <h2>${drink.name}</h2>
-          <p class="tagline">${drink.tagline}</p>
-          <p class="desc">${drink.desc}</p>
-          <span class="glass-label">${glassNames[drink.glass] || drink.glass}</span>
+    cocktails.forEach((cocktail) => {
+      const card = document.createElement("article");
+      card.className = "card";
+      card.innerHTML = `
+        <div class="copy">
+          <div>
+            <h2 class="name-zh">${cocktail.nameZh}</h2>
+            <p class="name-en">${cocktail.nameEn}</p>
+            <ul class="ingredients">
+              ${cocktail.ingredients.map((item) => `<li class="chip">${item}</li>`).join("")}
+            </ul>
+          </div>
+          <p class="note">${cocktail.note}</p>
         </div>
-        <div class="glass-art" aria-hidden="true">${glassSvgs[drink.glass] || glassSvgs.coupe}</div>
-      </article>
-    `).join("");
+        <div class="glass-wrap" aria-hidden="true">
+          ${glassSvgs[cocktail.glass] || glassSvgs.coupe}
+        </div>
+      `;
+      menu.appendChild(card);
+    });
   </script>
 </body>
 </html>
